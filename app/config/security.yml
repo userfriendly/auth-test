@@ -1,0 +1,26 @@
+security:
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:  { password: kitten, roles: 'ROLE_ADMIN' }
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login_firewall:
+            pattern:   ^/login
+            anonymous: ~
+
+        secured_area:
+            pattern: ^/
+            simple_form:
+                authenticator: time_authenticator
+                check_path:    login_check
+                login_path:    login
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_ADMIN }

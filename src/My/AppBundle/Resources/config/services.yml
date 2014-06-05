@@ -1,0 +1,7 @@
+parameters:
+    my_app.time_authenticator.class: My\AppBundle\Security\TimeAuthenticator
+
+services:
+    time_authenticator:
+        class:     "%my_app.time_authenticator.class%"
+        arguments: ["@security.encoder_factory"]

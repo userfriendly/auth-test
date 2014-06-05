@@ -1,0 +1,12 @@
+my_app_homepage:
+    pattern:  /
+    defaults:
+        _controller: MyAppBundle:Default:index
+
+login:
+    pattern: /login
+    defaults:
+        _controller: MyAppBundle:Default:login
+
+login_check:
+    pattern: /login_check

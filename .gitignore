@@ -1,0 +1,13 @@
+web/bundles/
+app/bootstrap*
+app/cache/*
+app/logs/*
+bin/*
+components
+vendor/*
+vendor_*
+app/config/parameters.yml
+app/phpunit.xml
+.project
+.buildpath
+.settings/
