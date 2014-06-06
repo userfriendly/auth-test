@@ -17,6 +17,7 @@ security:
         secured_area:
             provider: in_memory
             pattern: ^/
+            anonymous: ~
             simple_form:
                 authenticator: time_authenticator
                 check_path:    /login_check

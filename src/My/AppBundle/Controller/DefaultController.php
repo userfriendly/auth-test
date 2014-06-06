@@ -45,11 +45,17 @@ class DefaultController extends Controller
 
     public function loginCheckAction( Request $request )
     {
-        return new Response( "login checked?" );
+        return $this->render(
+            'MyAppBundle:Default:loginCheck.html.twig',
+            array()
+        );
     }
 
     public function fooAction( Request $request )
     {
-        return new Response( "Baa!" );
+        return $this->render(
+            'MyAppBundle:Default:foo.html.twig',
+            array()
+        );
     }
 }
