@@ -12,3 +12,8 @@ login_check:
     pattern: /login_check
     defaults:
         _controller: MyAppBundle:Default:loginCheck
+
+foo:
+    pattern: /foo
+    defaults:
+        _controller: MyAppBundle:Default:foo

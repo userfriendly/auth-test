@@ -47,4 +47,9 @@ class DefaultController extends Controller
     {
         return new Response( "login checked?" );
     }
+
+    public function fooAction( Request $request )
+    {
+        return new Response( "Baa!" );
+    }
 }
