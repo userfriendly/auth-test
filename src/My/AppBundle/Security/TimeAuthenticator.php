@@ -17,14 +17,18 @@ class TimeAuthenticator implements SimpleFormAuthenticatorInterface
     const LOGIN_END   = 20;
 
     private $encoderFactory;
+    private $logger;
 
-    public function __construct(EncoderFactoryInterface $encoderFactory)
+    public function __construct(EncoderFactoryInterface $encoderFactory, $logger)
     {
+        $logger->info( "INSTANTIATED AUTHENTICATOR" );
         $this->encoderFactory = $encoderFactory;
+        $this->logger = $logger;
     }
 
     public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
     {
+        $logger->info( "CALLED AUTHENTICATOR'S METHOD authenticateToken()" );
         try {
             $user = $userProvider->loadUserByUsername($token->getUsername());
         } catch (UsernameNotFoundException $e) {
@@ -60,12 +64,14 @@ class TimeAuthenticator implements SimpleFormAuthenticatorInterface
 
     public function supportsToken(TokenInterface $token, $providerKey)
     {
+        $logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
         return $token instanceof UsernamePasswordToken
             && $token->getProviderKey() === $providerKey;
     }
 
     public function createToken(Request $request, $username, $password, $providerKey)
     {
+        $logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
         return new UsernamePasswordToken($username, $password, $providerKey);
     }
 }
