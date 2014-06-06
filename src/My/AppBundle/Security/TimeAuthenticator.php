@@ -28,7 +28,7 @@ class TimeAuthenticator implements SimpleFormAuthenticatorInterface
 
     public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
     {
-        $logger->info( "CALLED AUTHENTICATOR'S METHOD authenticateToken()" );
+        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD authenticateToken()" );
         try {
             $user = $userProvider->loadUserByUsername($token->getUsername());
         } catch (UsernameNotFoundException $e) {
@@ -64,14 +64,14 @@ class TimeAuthenticator implements SimpleFormAuthenticatorInterface
 
     public function supportsToken(TokenInterface $token, $providerKey)
     {
-        $logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
+        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
         return $token instanceof UsernamePasswordToken
             && $token->getProviderKey() === $providerKey;
     }
 
     public function createToken(Request $request, $username, $password, $providerKey)
     {
-        $logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
+        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
         return new UsernamePasswordToken($username, $password, $providerKey);
     }
 }
