@@ -41,6 +41,10 @@ class DefaultController extends Controller
                 'error'         => $error,
             )
         );
-        return new Response( "login?" );
+    }
+
+    public function loginCheckAction( Request $request )
+    {
+        return new Response( "login checked?" );
     }
 }
