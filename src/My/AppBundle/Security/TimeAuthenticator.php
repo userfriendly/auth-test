@@ -21,14 +21,14 @@ class TimeAuthenticator implements SimpleFormAuthenticatorInterface
 
     public function __construct(EncoderFactoryInterface $encoderFactory, $logger)
     {
-        $logger->info( "INSTANTIATED AUTHENTICATOR" );
+        $logger->info( "INSTANTIATED AUTHENTICATOR" ); // shows up in dev.log
         $this->encoderFactory = $encoderFactory;
         $this->logger = $logger;
     }
 
     public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
     {
-        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD authenticateToken()" );
+        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD authenticateToken()" ); // does not show up in dev.log
         try {
             $user = $userProvider->loadUserByUsername($token->getUsername());
         } catch (UsernameNotFoundException $e) {
@@ -64,14 +64,14 @@ class TimeAuthenticator implements SimpleFormAuthenticatorInterface
 
     public function supportsToken(TokenInterface $token, $providerKey)
     {
-        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
+        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" ); // does not show up in dev.log
         return $token instanceof UsernamePasswordToken
             && $token->getProviderKey() === $providerKey;
     }
 
     public function createToken(Request $request, $username, $password, $providerKey)
     {
-        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" );
+        $this->logger->info( "CALLED AUTHENTICATOR'S METHOD supportsToken()" ); // does not show up in dev.log
         return new UsernamePasswordToken($username, $password, $providerKey);
     }
 }
