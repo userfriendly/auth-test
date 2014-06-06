@@ -19,8 +19,8 @@ security:
             pattern: ^/
             simple_form:
                 authenticator: time_authenticator
-                check_path:    login_check
-                login_path:    login
+                check_path:    /login_check
+                login_path:    /login
 
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
