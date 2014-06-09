@@ -43,8 +43,14 @@ class DefaultController extends Controller
         );
     }
 
+    public function logoutAction( Request $request )
+    {
+        // The security layer will intercept this request
+    }
+
     public function loginCheckAction( Request $request )
     {
+        // The security layer will intercept this request
         return $this->render(
             'MyAppBundle:Default:loginCheck.html.twig',
             array()

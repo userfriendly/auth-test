@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class TimeAuthenticator implements SimpleFormAuthenticatorInterface
 {
-    const LOGIN_START = 19;
+    const LOGIN_START = 10;
     const LOGIN_END   = 20;
 
     private $encoderFactory;
